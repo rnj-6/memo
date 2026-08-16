@@ -15,13 +15,14 @@ if memo_type == 1   # 新規作成
     file_name = gets.chomp   # 新規のファイル名を受け取る
 
     puts "★ 本文を入力してください。"
-    puts "★ 入力が終わったら Ctrl + Z の後に Enter を押してください。"
+    puts "★ 入力が終わったら Ctrl + Z の後に Enter を押してください。 ※Macの場合はCtrl + D"
     memo = readlines(chomp: true)   # メモの内容を受け取る
 
     CSV.open("#{file_name}.csv", "w") do |csv|   # メモの内容を1行ずつ保存
       memo.each do |memo|
         csv << [memo]                
       end
+ 
     end
 
     puts "★ ファイル名:#{file_name} を保存しました。"
@@ -41,7 +42,7 @@ elsif memo_type == 2   # 既存編集
     puts "-----------------"
 
     puts "★ 本文を入力してください。"
-    puts "★ 入力が終わったら Ctrl + Z の後に Enter を押してください。"
+    puts "★ 入力が終わったら Ctrl + Z の後に Enter を押してください。 ※Macの場合はCtrl + D"
     memo = readlines(chomp: true)   # メモの内容を受け取る
 
     CSV.open("#{file_name}.csv", "a") do |csv|
